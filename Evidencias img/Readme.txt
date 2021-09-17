@@ -1,0 +1,1 @@
+Aquí se mostrarán las diferentes imagénes que evidencian los requerimientos propuestos para el Sprint 1 siendo abarcados satisfactoriamente.
