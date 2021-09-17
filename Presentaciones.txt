@@ -1,3 +1,12 @@
 Felipe Rojas
 Tengo 25 años, soy ingeniero electrónico y mecánico y actualmente trabajo para el IETS. Decidí entrar a este curso con el MinTic
 porque me gusta programar y quiero aprender a hacer apps :). 
+
+---------------------------------------------------------------------------------------------------------------------------------
+Marlon Muete.
+Nací en Medellín, aunque he vivido gran parte de mi vida en Bogotá.
+Tengo 21 años, he estudiado Estadística y Física en la Universidad Nacional y actualmente soy estudiante de Software
+en  colaboración con el Ministerio de Tecnologías y la UdeA.
+Decidí ingresar al desarrollo de software para seguir aprendiendo tecnologías nuevas.
+
+----------------------------------------------------------------------------------------------------------------------------------
