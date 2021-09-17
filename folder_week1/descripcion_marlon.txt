@@ -1,0 +1,7 @@
+**** Descripción para completar los requerimientos del Sprint de la semana 1 ****
+
+1) Se creó una cuenta en GitHub. En mi caso ya tenía mi cuenta y simplemente ingresé a ella.
+2) Adicionalmente se descargó el sistema de versiones "Git" con el cuál se vinculo al repositorio con los comandos propuestos en la documentación y el link del repositorio creado.
+4) Se les dió permisos en el repositorio a los demás compañeros para así contribuir dentro del mismo.
+3) Junto con los compañeros del equipo, asignamos los roles que se llevarán acabo en este primer Sprint, empezamos a proponer nombres y el cómo operaremos para completar satisfactoriamente este primer Sprint.
+4) Finalmente nos disponemos a hacer Commit-Push para subir nuestros cambios hechos al repositorio.
