@@ -10,3 +10,8 @@ en  colaboración con el Ministerio de Tecnologías y la UdeA.
 Decidí ingresar al desarrollo de software para seguir aprendiendo tecnologías nuevas.
 
 ----------------------------------------------------------------------------------------------------------------------------------
+Nicolas Moncada Perdomo.
+Nací y vivo en Bogotá.
+Tengo 22 años, estudio ingeniería eléctrica en la Universidad Distrital Francisco José de Caldas.
+Decidí entrar a este curso con el MinTIC porque me gusta programar y me veo en un futuro trabajando en algo que una mi carrera con 
+la programacion.
