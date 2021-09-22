@@ -21,3 +21,8 @@ Maria Jose Capera Firigua.
 Tengo 18 años, nací en Bogotá pero ha vivido en dintistas partes, actualmente vivo en neiva huila, actualmente estoy estudiando en la Universidad
 surcolombiana.
 Me inscribi en este curso porque me gustaria aprender sobre desaarollo web y todo lo qmue esto incluye, 
+----------------------------------------------------------------------------------------------------------------------------------
+Jose Fernando Garcia.
+Naci en San Agustin Huila y actualmente vivo en Medellin.
+Tengo 22 años, soy estudiante de quimica farmaceutica en la Universidad de Antioquia.
+Inicie con el curso de programacion por la aplicacion logica y por la curiosidad de conocer como funcionaba cada aplicacion o pagina web.
