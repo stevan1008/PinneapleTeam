@@ -33,3 +33,24 @@ nav ul li a {
     font-weight: bold;
 }
 
+.login {
+    color: #444;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30;
+    text-align: center;
+    background-color: beige;
+    width: 20%;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color:beige;
+    color: #444;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    font-size: 25;
+  }
