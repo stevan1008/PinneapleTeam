@@ -20,5 +20,10 @@
   "homepage": "https://github.com/stevan1008/proof1#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap": "^5.0.0-beta3",
+    "jquery": "^3.6.0"
   }
 }

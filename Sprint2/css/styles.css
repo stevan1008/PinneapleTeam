@@ -2,33 +2,10 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: #dadada;
 }
 
-header {
-    background: #e7eb0a;
-    width: 100%;
-    clear: both;
-    display: table;
-}
-
-.menu {
-    width: 900px;
-    margin: 0 auto;
+.jumbotron {
+    background-color: #e3f2fd;
 }
 
 
-
-nav ul li {
-    list-style: none;
-    margin: 15px;
-    padding: 15px 0;
-    float: left;
-    white-space: nowrap;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #444;
-    font-weight: bold;
-}
