@@ -45,12 +45,9 @@ nav ul li a {
 
 /* Set a style for all buttons */
 button {
-    background-color:beige;
     color: #444;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 10%;
-    font-size: 25;
   }
