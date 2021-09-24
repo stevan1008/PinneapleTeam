@@ -9,3 +9,30 @@ body {
 }
 
 
+<<<<<<< HEAD
+=======
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+.login {
+    color: #444;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30;
+    text-align: center;
+    background-color: beige;
+    width: 20%;
+}
+
+/* Set a style for all buttons */
+button {
+    color: #444;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+  }
+>>>>>>> cf4a90370bfb20edb2ca55541b42d6e0cae329b4
