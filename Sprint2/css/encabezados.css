@@ -1,0 +1,56 @@
+th{
+font-size: 40px;
+}
+td{
+    font-weight:bold;
+}
+td{
+    font-size: 20px;
+}
+div{
+    margin:0;
+    padding:0;
+    font:9pt Arial;
+}
+
+body {
+  background-color:white;
+}
+
+.field {
+  display:flex;
+  position:top;
+  margin:5em auto;
+  width:50%;
+  flex-direction:row;
+  box-shadow:
+   1px 1px 0 rgb(22, 160, 133),
+   2px 2px 0 rgb(22, 160, 133),
+   3px 3px 0 rgb(22, 160, 133),
+   4px 4px 0 rgb(22, 160, 133),
+   5px 5px 0 rgb(22, 160, 133),
+   6px 6px 0 rgb(22, 160, 133),
+   7px 7px 0 rgb(22, 160, 133)
+  ;
+}
+
+.field>input[type=text],
+.field>button {
+  display:block;
+  font:1.2em 'Montserrat Alternates';
+  padding: 50%;
+  border-spacing: 100px;
+}
+
+.field>input[type=text] {
+  flex:1;
+  padding:0.6em;
+  border:0.2em solid rgb(26, 188, 156);
+}
+
+.field>button {
+  padding:0.6em 0.8em;
+  background-color:rgb(26, 188, 156);
+  color:white;
+  border:none;
+}
