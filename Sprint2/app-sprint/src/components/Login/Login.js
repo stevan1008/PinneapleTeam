@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import React, { Component, useState } from 'react';
+import {Form} from "reactstrap";
+import {Button} from 'reactstrap';
 
-function validateForm() {
-  return email.length > 0 && password.length > 0;
-}
 
-function handleSubmit(event) {
-  event.preventDefault();
-}
-
-class GestionUsers extends Component{
+class Login extends Component{
 
   constructor(props) {
     super(props);
@@ -21,10 +13,19 @@ class GestionUsers extends Component{
     }
   }
 
+  validateForm() {
+    return this.state.email.length > 0 && this.state.password.length > 0;
+  }
+
+  handleSubmit(e) {
+    return e.preventDefault();
+  }
+
+
   render () {
     return (
       <div className="Login">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -42,7 +43,7 @@ class GestionUsers extends Component{
               onChange={(e, newValue) => this.setState({password:newValue})}
             />
           </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()} onClick = {(e) => this.handleClick(e)} >
+          <Button block size="lg" type="submit" disabled={!this.validateForm()} onClick = {(e) => this.handleClick(e)} >
             Login
           </Button>
         </Form>
@@ -50,5 +51,6 @@ class GestionUsers extends Component{
     );
   }
 }
+
 
 export default Login;
