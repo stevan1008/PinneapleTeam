@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
-import {Form} from "reactstrap";
-import {Button} from 'reactstrap';
+import {FormGroup, Form, Button} from "reactstrap";
 
 
 class Login extends Component{
@@ -11,6 +10,9 @@ class Login extends Component{
       email:'',
       password:''
     }
+
+    this.validateForm = this.validateForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   validateForm() {
@@ -18,39 +20,40 @@ class Login extends Component{
   }
 
   handleSubmit(e) {
-    return e.preventDefault();
+    e.preventDefault();
   }
 
 
   render () {
     return (
       <div className="Login">
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group size="lg" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              autoFocus
+        <form onSubmit={this.handleSubmit}>
+          <FormGroup size="lg">
+            <label>Email</label>
+            <input 
+              className = 'form-group'
               type="email"
               value={this.state.email}
               onChange={(e,newValue) => this.setState({email:newValue})}
             />
-          </Form.Group>
-          <Form.Group size="lg" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
+          </FormGroup>
+          <FormGroup size="lg">
+            <label>Password</label>
+            <input
+              className = 'form-group'
               type="password"
               value={this.state.password}
               onChange={(e, newValue) => this.setState({password:newValue})}
             />
-          </Form.Group>
-          <Button block size="lg" type="submit" disabled={!this.validateForm()} onClick = {(e) => this.handleClick(e)} >
+          </FormGroup>
+          <Button block size="lg" type="submit"  >
             Login
           </Button>
-        </Form>
+        </form>
       </div>
     );
   }
 }
 
-
+//onClick = {(e) => this.handleClick(e)} 
 export default Login;
