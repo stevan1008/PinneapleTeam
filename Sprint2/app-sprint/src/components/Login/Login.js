@@ -11,13 +11,9 @@ class Login extends Component{
       password:''
     }
 
-    this.validateForm = this.validateForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -35,6 +31,8 @@ class Login extends Component{
               type="email"
               value={this.state.email}
               onChange={(e,newValue) => this.setState({email:newValue})}
+              required
+              
             />
           </FormGroup>
           <FormGroup size="lg">
@@ -44,9 +42,10 @@ class Login extends Component{
               type="password"
               value={this.state.password}
               onChange={(e, newValue) => this.setState({password:newValue})}
+              required
             />
           </FormGroup>
-          <Button block size="lg" type="submit"  >
+          <Button block size="lg" type="submit" color='success' >
             Login
           </Button>
         </form>
