@@ -8,13 +8,8 @@ class GestionSales extends Component{
         super(props);
         
         this.state = {
-            modalInsertar: false,
         };
     }
-
-    mostrarModalInsertar = () => {
-        this.setState({modalInsertar:true})
-    };
 
     render() {
         return(
