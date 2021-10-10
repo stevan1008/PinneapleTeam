@@ -4,6 +4,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './Home/Home';
 import GestionUsers from './GestionUsers/GestionUsers';
+import GestionSales from './GestionSales/GestionSales';
 import Login from './Login/Login';
 
 class Main extends Component {
@@ -31,6 +32,11 @@ class Main extends Component {
           return (
             <Login />
           );
+        }
+        const GestionSl = () => {
+            return (
+              <GestionSales />
+            );
         }
           return (
             <div>
