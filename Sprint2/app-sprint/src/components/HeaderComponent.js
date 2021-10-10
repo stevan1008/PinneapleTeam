@@ -31,10 +31,11 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                         <NavItem><NavLink className="nav-link" to="/home"><span className="fa fa-home fa-lg"></span> Home</NavLink></NavItem>
-                        <NavItem><NavLink className="nav-link" to="/home"><span className="fa fa-address-card fa-lg"></span> Gestion de Vendedores</NavLink></NavItem>
+                        <NavItem><NavLink className="nav-link" to="/home"><span className="fa fa-address-card fa-lg"></span> Gestion de Productos</NavLink></NavItem>
                         <NavItem><NavLink className="nav-link" to="/gestionusers"><span className="fa fa-address-book fa-lg"></span> Gestion de Usuarios</NavLink></NavItem>
-                        <NavItem><NavLink className="nav-link" to="/contactus"><span className="fa fa-book fa-lg"></span> Administrador de Ventas</NavLink></NavItem>
+                        <NavItem><NavLink className="nav-link" to="/gestionsales"><span className="fa fa-book fa-lg"></span> Gestion de Ventas</NavLink></NavItem>
                         <NavItem><NavLink className="nav-link" to="/login"><span className="fa fa-login fa-lg"></span> Login</NavLink></NavItem>
+                        <NavItem><NavLink className="nav-link" to="/contactus"><span className="fa fa-pencil fa-fw"></span> Contactenos</NavLink></NavItem>
                         </Nav>
                         </Collapse>
                     </div>

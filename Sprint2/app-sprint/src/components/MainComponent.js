@@ -45,6 +45,7 @@ class Main extends Component {
                 <Route path='/home' component={HomePage} />
                 <Route exact path='/gestionusers' component={GestionUs} />
                 <Route exact path='/login' component={LoginPage} />
+                <Route exact path='/gestionsales' component={GestionSl} />
                 <Redirect to="/home" />
               </Switch>
               <Footer />
