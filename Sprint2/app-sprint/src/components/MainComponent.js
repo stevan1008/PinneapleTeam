@@ -4,6 +4,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './Home/Home';
 import GestionUsers from './GestionUsers/GestionUsers';
+import GestionSales from './GestionSales/GestionSales';
 import Login from './Login/Login';
 
 class Main extends Component {
@@ -32,6 +33,11 @@ class Main extends Component {
             <Login />
           );
         }
+        const GestionSl = () => {
+            return (
+              <GestionSales />
+            );
+        }
           return (
             <div>
               <Header />
@@ -39,6 +45,7 @@ class Main extends Component {
                 <Route path='/home' component={HomePage} />
                 <Route exact path='/gestionusers' component={GestionUs} />
                 <Route exact path='/login' component={LoginPage} />
+                <Route exact path='/gestionsales' component={GestionSl} />
                 <Redirect to="/home" />
               </Switch>
               <Footer />
