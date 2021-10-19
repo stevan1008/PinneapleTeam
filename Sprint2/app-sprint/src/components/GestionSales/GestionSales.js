@@ -1,10 +1,8 @@
 import React , { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './GestionSales.module.css';
-import { Container, Navbar } from 'reactstrap';
+import { Col, Container, Form, Input, Navbar, Row } from 'reactstrap';
 import {Table, Button, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter} from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faSearch } from "@fortawesome/free-solid-svg-icons"; 
 
 
 const DATOS = [
@@ -34,24 +32,27 @@ class GestionSales extends Component{
         return(
             <>
             <Container>
-                <br /> 
-                <Button color="primary">Registrar Nueva Venta</Button>
-                <br /> <br />
-                <div className="barraBusqueda">
-                    <input
-                        type="text"
-                        placeholder="ID venta, ID cliente, nombre cliente"
-                        className="textField"
-                        name="busqueda"
-                        value={this.state.busqueda}
-                        onChange={this.onChange}
-                    />
-                    <button type="button" className="btnBuscar" >
-                        {" "}
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>
-                </div>
-                <br /> <br />
+                <Row>
+                    <Col xs= "3">
+                        <br /> 
+                        <Button color="primary">Registrar Nueva Venta</Button>
+                        <br /> <br />
+                    </Col>
+                    <Col xs="3"></Col>
+                    <Col xs="5">
+                        <br />
+                        <Form>
+                            <Input type="text" placeholder="ID venta, ID cliente o nombre del cliente" name="busqueda"/>
+                        </Form>
+                        <br /> <br />
+                    </Col>
+                    <Col xs="1">
+                        <br />
+                        <Button color="secondary"><span className="fa fa-search fa-lg"></span></Button>
+                        <br /><br />
+                    </Col>
+                </Row>
+                
                 <Table>
                     <thead>
                         <tr>
