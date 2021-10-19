@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import {FormGroup, Form, Button} from "reactstrap";
-import validator from 'validator';
+import validator from "validator";
 
 const Login = () => {
   
