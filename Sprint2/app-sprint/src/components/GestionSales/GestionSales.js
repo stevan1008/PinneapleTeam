@@ -40,7 +40,7 @@ class GestionSales extends Component{
                 <div className="barraBusqueda">
                     <input
                         type="text"
-                        placeholder="Buscar"
+                        placeholder="ID venta, ID cliente, nombre cliente"
                         className="textField"
                         name="busqueda"
                         value={this.state.busqueda}
