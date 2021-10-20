@@ -17,6 +17,7 @@ class GestionSales extends Component{
         this.state = {
             datos : DATOS,
             modalRegistrar: false,
+            modalActualizar: false,
             form: {
                 idSale:"",
                 idClient: "",
@@ -32,6 +33,10 @@ class GestionSales extends Component{
         this.setState({modalRegistrar: !this.state.modalRegistrar})
     }
 
+    estadoModalActualizar = (dato) => {
+        this.setState({modalActualizar: !this.state.modalActualizar, form:dato})
+    }
+
     registrarVenta = () => {
         let newSale = {...this.state.form};
         newSale.idSale = this.state.datos.length + 1;
@@ -41,6 +46,23 @@ class GestionSales extends Component{
 
         this.setState({datos: aux, modalRegistrar: false});
     }
+
+    editar = (dato) => {
+        let cont = 0;
+        let aux = this.state.datos;
+        aux.map((datoAux) => {
+          if (dato.idSale === datoAux.idSale) {
+            aux[cont].idClient = dato.idClient;
+            aux[cont].firstNameClient = dato.firstNameClient;
+            aux[cont].lastNameClient = dato.lastNameClient;
+            aux[cont].productName = dato.productName;
+            aux[cont].unitPrice = dato.unitPrice;
+          }
+          cont++;
+        });
+
+        this.setState({datos: aux, modalActualizar:false });
+    };
 
     handleChange = (e) =>{
         this.setState({
@@ -102,7 +124,7 @@ class GestionSales extends Component{
                                 <td>{dato.lastNameClient}</td>
                                 <td>{dato.productName}</td>
                                 <td>{dato.unitPrice}</td>
-                                <td><Button color="success">
+                                <td><Button color="success" onClick= {() => this.estadoModalActualizar(dato)}>
                                     Editar</Button>{"   "}</td>
                             </tr>
                         ))}
@@ -181,6 +203,82 @@ y para editar ventas ya listadas */}
                     </Button>
                     <Button color="danger" 
                     onClick={this.estadoModalRegistrar}>Cancelar
+                    </Button>
+                </ModalFooter>
+            </Modal>
+
+            <Modal isOpen={this.state.modalActualizar}>
+
+                {/*Modal para Actualizar ventas */}
+
+                <ModalHeader>
+                <div><h3>Actualizar venta {this.state.form.idSale}</h3></div>
+                </ModalHeader>
+                <ModalBody>
+                    <Form>
+                        <FormGroup>
+                            <Label>ID Venta: </Label>
+                            <Input type="text"
+                            name="idSale"
+                            value={this.state.form.idSale}
+                            disabled/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>ID Cliente: </Label>
+                            <Input type="text"
+                            name="idClient"
+                            onChange={this.handleChange}
+                            value={this.state.form.idClient}
+                            required 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Nombre del Cliente:</Label>
+                            <Input type="text"
+                            name="firstNameClient"
+                            onChange={this.handleChange}
+                            value={this.state.form.firstNameClient}
+                            required 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Apellido del Cliente:</Label>
+                            <Input type="text"
+                            name="lastNameClient"
+                            onChange={this.handleChange} 
+                            value={this.state.form.lastNameClient}
+                            required
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Nombre del producto:</Label>
+                            <Input type="text"
+                            name="productName"
+                            onChange={this.handleChange}
+                            value={this.state.form.productName}
+                            required 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Precio unitario del producto:</Label>
+                            <Input type="text"
+                            name="unitPrice"
+                            onChange={this.handleChange}
+                            value={this.state.form.unitPrice}
+                            required 
+                            />
+                        </FormGroup>
+                    </Form>
+                </ModalBody>
+                <ModalFooter>
+
+                    <Button
+                    color="primary"
+                    onClick={() => this.editar(this.state.form)}>Actualizar
+                    </Button>
+
+                    <Button color="danger" 
+                    onClick={this.estadoModalActualizar}>Cancelar
                     </Button>
                 </ModalFooter>
             </Modal>
