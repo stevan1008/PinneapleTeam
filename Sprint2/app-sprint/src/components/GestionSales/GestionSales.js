@@ -1,13 +1,11 @@
 import React , { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './GestionSales.module.css';
-import {Col, Container, Form, Input, Navbar, Row, Table, Button, Modal, ModalBody, Label, ModalHeader, FormGroup, ModalFooter} from 'reactstrap';
+import {Col, Container, Form, Input, Row, Table, Button, Modal, ModalBody, Label, ModalHeader, FormGroup, ModalFooter} from 'reactstrap';
 
 
 const DATOS = [
-    {idSale : "1", idClient: "1111", firstNameClient: "Pepito", lastNameClient: "Perez", productName: "Arroz", unitPrice: 2000},
-    {idSale : "2", idClient: "1112", firstNameClient: "Marcos",lastNameClient: "De los Angeles", productName: "Paquete gomitas x12", unitPrice: 3500},
-    {idSale : "3", idClient: "1113", firstNameClient: "Fulano",lastNameClient: "De Tal", productName: "Poker lata x6", unitPrice: 15000},
+    {idSale : 1, idClient: "1111", firstNameClient: "Pepito", lastNameClient: "Perez", productName: "Arroz", unitPrice: 2000},
+    {idSale : 2, idClient: "1112", firstNameClient: "Marcos",lastNameClient: "De los Angeles", productName: "Paquete gomitas x12", unitPrice: 3500},
+    {idSale : 3, idClient: "1113", firstNameClient: "Fulano",lastNameClient: "De Tal", productName: "Poker lata x6", unitPrice: 15000},
 ]
 
 class GestionSales extends Component{
@@ -18,6 +16,8 @@ class GestionSales extends Component{
             datos : DATOS,
             modalRegistrar: false,
             modalActualizar: false,
+            busqueda: '',
+            datosBusqueda: '',
             form: {
                 idSale:"",
                 idClient: "",
@@ -70,8 +70,32 @@ class GestionSales extends Component{
             ...this.state.form,
             [e.target.name]: e.target.value,
           }
-        })
-      }
+        });
+        console.log(this.state.busqueda)
+    }
+
+/* Esta funcion obChange se usa exclusivamente para la barra de busqueda */
+    onChange=async e =>{
+        e.persist();
+        await this.setState({busqueda: e.target.value});
+        this.filtrarElementos()
+    }
+
+    filtrarElementos(){
+        var search=DATOS.filter(item=>{
+            if(item.idSale.toString().includes(this.state.busqueda) ||
+               item.idClient.toString().includes(this.state.busqueda) ||
+               item.firstNameClient.toLowerCase().includes(this.state.busqueda) ||
+               item.lastNameClient.toLowerCase().includes(this.state.busqueda)){
+                return item;
+            }
+        });
+        this.setState({datos: search})
+    }
+
+    /* componentDidMount(){
+        this.setState({datosBusqueda: DATOS})
+    } */
 
     render() {
         return(
@@ -90,13 +114,18 @@ class GestionSales extends Component{
                     <Col xs="5">
                         <br />
                         <Form>
-                            <Input type="text" placeholder="ID venta, ID cliente o nombre del cliente" name="busqueda"/>
+                            <Input type="text" 
+                            placeholder="ID venta, ID cliente o nombre del cliente" 
+                            name="busqueda"
+                            onChange={this.onChange}
+                            />
                         </Form>
                         <br /> <br />
                     </Col>
                     <Col xs="1">
                         <br />
-                        <Button color="secondary"><span className="fa fa-search fa-lg"></span></Button>
+                        <Button color="secondary" onClick= {() => this.filtrarElementos()}>
+                            <span className="fa fa-search fa-lg"></span></Button>
                         <br /><br />
                     </Col>
                 </Row>
