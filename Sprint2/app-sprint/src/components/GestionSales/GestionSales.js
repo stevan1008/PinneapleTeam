@@ -6,9 +6,9 @@ import {Table, Button, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter} fr
 
 
 const DATOS = [
-    {idSale : "00001", idClient: "1111", firstNameClient: "Pepito", lastNameClient: "Perez", productName: "Arroz", unitPrice: 2000},
-    {idSale : "00002", idClient: "1112", firstNameClient: "Marcos",lastNameClient: "De los Angeles", productName: "Paquete gomitas x12", unitPrice: 3500},
-    {idSale : "00003", idClient: "1113", firstNameClient: "Fulano",lastNameClient: "De Tal", productName: "Poker lata x6", unitPrice: 15000},
+    {idSale : "1", idClient: "1111", firstNameClient: "Pepito", lastNameClient: "Perez", productName: "Arroz", unitPrice: 2000},
+    {idSale : "2", idClient: "1112", firstNameClient: "Marcos",lastNameClient: "De los Angeles", productName: "Paquete gomitas x12", unitPrice: 3500},
+    {idSale : "3", idClient: "1113", firstNameClient: "Fulano",lastNameClient: "De Tal", productName: "Poker lata x6", unitPrice: 15000},
 ]
 
 class GestionSales extends Component{
@@ -17,6 +17,7 @@ class GestionSales extends Component{
         
         this.state = {
             datos : DATOS,
+            modalRegistrar: false,
             form: {
                 idSale:"",
                 idClient: "",
@@ -28,14 +29,25 @@ class GestionSales extends Component{
         };
     }
 
+    estadoModalRegistrar = () => {
+        this.setState({modalRegistrar: !this.state.modalRegistrar})
+    }
+
+    registrarVenta = () => {
+        this.setState({modalRegistrar: false});
+    }
+
     render() {
         return(
             <>
             <Container>
                 <Row>
+{/* Bootstrap usa 12 columnas 
+    Se reparten con xs = ... las colkumnas que ocupará cada elemento
+*/}
                     <Col xs= "3">
                         <br /> 
-                        <Button color="primary">Registrar Nueva Venta</Button>
+                        <Button color="primary" onClick= {() => this.estadoModalRegistrar()}>Registrar Nueva Venta</Button>
                         <br /> <br />
                     </Col>
                     <Col xs="3"></Col>
@@ -64,6 +76,8 @@ class GestionSales extends Component{
                             <th>Precio unitario</th>
                             <th>Acción</th>
                         </tr>
+{/* <tr> crea un encabezado a la tabla con formato de encabezado
+ */}
                     </thead>
                     <tbody>
                         {this.state.datos.map((dato) => (
@@ -81,6 +95,45 @@ class GestionSales extends Component{
                     </tbody>
                 </Table>
             </Container>
+
+{/* Ahora vienen los modales, que son las ventanas emergentes
+Los modales que se usarán será para registrar una nueva venta
+y para editar ventas ya listadas */}
+
+
+            <Modal isOpen={this.state.modalRegistrar}>
+
+                {/*Modal para registrar ventas */}
+
+                <ModalHeader>
+                    <div><h3>Registrar Nueva Venta</h3></div>
+                </ModalHeader>
+
+                <ModalBody>
+                    <Form>
+                        <FormGroup>
+                            <label>ID Venta: </label>
+                            <input className="form-control" readOnly 
+                            type="text" value={this.state.datos.length + 1}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <label>ID Cliente: </label>
+                            
+                        </FormGroup>
+                    </Form>
+                </ModalBody>
+
+                <ModalFooter>
+                    <Button 
+                    color="primary" 
+                    onClick={this.registrarVenta}>Registrar venta
+                    </Button>
+                    <Button color="danger" 
+                    onClick={this.estadoModalRegistrar}>Cancelar
+                    </Button>
+                </ModalFooter>
+            </Modal>
             </>
         )
     }
