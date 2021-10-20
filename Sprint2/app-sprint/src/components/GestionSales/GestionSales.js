@@ -1,8 +1,7 @@
 import React , { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './GestionSales.module.css';
-import { Col, Container, Form, Input, Navbar, Row } from 'reactstrap';
-import {Table, Button, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter} from 'reactstrap';
+import {Col, Container, Form, Input, Navbar, Row, Table, Button, Modal, ModalBody, Label, ModalHeader, FormGroup, ModalFooter} from 'reactstrap';
 
 
 const DATOS = [
@@ -34,8 +33,23 @@ class GestionSales extends Component{
     }
 
     registrarVenta = () => {
-        this.setState({modalRegistrar: false});
+        let newSale = {...this.state.form};
+        newSale.idSale = this.state.datos.length + 1;
+
+        let aux = this.state.datos;
+        aux.push(newSale);
+
+        this.setState({datos: aux, modalRegistrar: false});
     }
+
+    handleChange = (e) =>{
+        this.setState({
+          form: {
+            ...this.state.form,
+            [e.target.name]: e.target.value,
+          }
+        })
+      }
 
     render() {
         return(
@@ -112,14 +126,50 @@ y para editar ventas ya listadas */}
                 <ModalBody>
                     <Form>
                         <FormGroup>
-                            <label>ID Venta: </label>
-                            <input className="form-control" readOnly 
-                            type="text" value={this.state.datos.length + 1}
+                            <Label>ID Venta: </Label>
+                            <Input type="text" 
+                            name="idSale"
+                            value={this.state.datos.length + 1} 
+                            disabled/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>ID Cliente: </Label>
+                            <Input type="text"
+                            name="idClient"
+                            onChange={this.handleChange}
+                            required 
                             />
                         </FormGroup>
                         <FormGroup>
-                            <label>ID Cliente: </label>
-                            
+                            <Label>Nombre del Cliente:</Label>
+                            <Input type="text"
+                            name="firstNameClient"
+                            onChange={this.handleChange}
+                            required 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Apellido del Cliente:</Label>
+                            <Input type="text"
+                            name="lastNameClient"
+                            onChange={this.handleChange} 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Nombre del producto:</Label>
+                            <Input type="text"
+                            name="productName"
+                            onChange={this.handleChange}
+                            required 
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Precio unitario del producto:</Label>
+                            <Input type="text"
+                            name="unitPrice"
+                            onChange={this.handleChange}
+                            required 
+                            />
                         </FormGroup>
                     </Form>
                 </ModalBody>
